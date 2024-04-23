@@ -1,9 +1,11 @@
 # Practice Phaser + TypeScript
 
-Phaser.js を TypeScript で書くため Vite で環境構築しています。
+__[Enter The WebSite](https://neos21.github.io/practice-phaser-ts/)__
 
 
 ## Setup
+
+Phaser.js を TypeScript で書くため Vite で環境構築しています。
 
 ```bash
 # Vite で Vanilla TS 環境を構築する
@@ -23,7 +25,12 @@ Done. Now run:
   npm install
   npm run dev
 
-# 初期ファイルを適宜調整する
+# - 初期ファイルを適宜調整する
+# - vite.config.ts
+# - .github/workflows/deploy-github-pages.yaml
+
+# Phaser.js をインストールする
+$ npm install --save phaser
 ```
 
 

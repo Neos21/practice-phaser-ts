@@ -25,6 +25,9 @@
     "type": "github",
     "url": "https://github.com/sponsors/Neos21"
   },
+  "dependencies": {
+    "phaser": "3.80.1"
+  },
   "devDependencies": {
     "typescript": "5.4.5",
     "vite": "5.2.10"
