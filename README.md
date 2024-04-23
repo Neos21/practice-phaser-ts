@@ -33,6 +33,9 @@ Done. Now run:
 $ npm install --save phaser
 ```
 
+- 参考 : [【作業ログ】【Phaser】【Typescript】「Making your first Phaser 3 game」](https://zenn.dev/oneichan/scraps/b1cea52cc7f95e)
+- 参考 : [dominik-selmeci/making-your-first-phaser-3-game-with-typescript: My approach to official tutorial from Phaser 3 with Typescript](https://github.com/dominik-selmeci/making-your-first-phaser-3-game-with-typescript)
+
 
 ## Links
 
