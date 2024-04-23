@@ -33,8 +33,15 @@ Done. Now run:
 $ npm install --save phaser
 ```
 
-- 参考 : [【作業ログ】【Phaser】【Typescript】「Making your first Phaser 3 game」](https://zenn.dev/oneichan/scraps/b1cea52cc7f95e)
-- 参考 : [dominik-selmeci/making-your-first-phaser-3-game-with-typescript: My approach to official tutorial from Phaser 3 with Typescript](https://github.com/dominik-selmeci/making-your-first-phaser-3-game-with-typescript)
+
+## References
+
+- 1st Game
+  - [【作業ログ】【Phaser】【Typescript】「Making your first Phaser 3 game」](https://zenn.dev/oneichan/scraps/b1cea52cc7f95e)
+  - [dominik-selmeci/making-your-first-phaser-3-game-with-typescript: My approach to official tutorial from Phaser 3 with Typescript](https://github.com/dominik-selmeci/making-your-first-phaser-3-game-with-typescript)
+- Vite Multi Page Build
+  - [Add a way to control output paths of HTML entries in multi-page apps · Issue #15612 · vitejs/vite](https://github.com/vitejs/vite/issues/15612)
+  - [【Vite】複数ページある場合の設定を考える - UGA Boxxx](https://uga-box.hatenablog.com/entry/2022/05/03/000000)
 
 
 ## Links

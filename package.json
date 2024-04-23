@@ -4,12 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "?dev"    : "echo 'ホットリロード開発サーバを立ち上げる'",
-     "dev"    : "vite",
-    "?build"  : "echo 'tsc で型チェックのみ行い vite build でビルドして ./dist/ に出力する'",
-     "build"  : "tsc && vite build",
+    "?dev": "echo 'ホットリロード開発サーバを立ち上げる'",
+    "dev": "vite",
+    "?build": "echo 'tsc で型チェックのみ行い vite build でビルドして ./dist/ に出力する'",
+    "build": "tsc && vite build",
     "?preview": "echo 'npm run build でビルドした資材に対して静的サーバを立ち上げる'",
-     "preview": "vite preview"
+    "preview": "vite preview"
   },
   "author": "Neo <neos21@gmail.com> (https://neos21.net/)",
   "license": "MIT",
@@ -29,6 +29,7 @@
     "phaser": "3.80.1"
   },
   "devDependencies": {
+    "@types/node": "20.12.7",
     "typescript": "5.4.5",
     "vite": "5.2.10"
   }

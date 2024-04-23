@@ -34,11 +34,12 @@ export default class TestScene extends Phaser.Scene {
   
   /** 画像の事前ロードなどを行う */
   public preload(): void {
-    this.load.image(TestScene.keyNameSky      , `assets-1st/${TestScene.keyNameSky}.png`);
-    this.load.image(TestScene.keyNamePlatform , `assets-1st/${TestScene.keyNamePlatform}.png`);
-    this.load.image(StarObject.keyName        , `assets-1st/${StarObject.keyName}.png`);
-    this.load.image(BombObject.keyName        , `assets-1st/${BombObject.keyName}.png`);
-    this.load.spritesheet(PlayerObject.keyName, `assets-1st/${PlayerObject.keyName}.png`, { frameWidth: 32, frameHeight: 48 });
+    // `./src/1st/` と `./public/1st/` のディレクトリ名を揃えることで、ビルド後に `./dist/1st/` 内で相対パスとして解決できるようにする
+    this.load.image(TestScene.keyNameSky      , `./${TestScene.keyNameSky}.png`);
+    this.load.image(TestScene.keyNamePlatform , `./${TestScene.keyNamePlatform}.png`);
+    this.load.image(StarObject.keyName        , `./${StarObject.keyName}.png`);
+    this.load.image(BombObject.keyName        , `./${BombObject.keyName}.png`);
+    this.load.spritesheet(PlayerObject.keyName, `./${PlayerObject.keyName}.png`, { frameWidth: 32, frameHeight: 48 });
   }
   
   /** スプライトなどを作成する */
