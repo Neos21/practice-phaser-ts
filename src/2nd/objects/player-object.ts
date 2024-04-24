@@ -21,6 +21,7 @@ export default class PlayerObject extends Phaser.Physics.Arcade.Sprite {
   public onPointerMove(pointer: Phaser.Input.Pointer, state: State): void {
     if(state !== 'PLAY') return;  // 操作可能な状態でなければ何もしない
     
+    // TODO : ゲームオーバー時に即時停止できるようにする
     this.scene.tweens.add({
       targets: this,
       x: pointer.x,

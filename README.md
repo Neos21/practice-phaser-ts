@@ -51,6 +51,9 @@ $ npm install --save phaser
   - [Phaser 3 | テキストの各パラメータ一覧と指定方法 | 1 NOTES](https://1-notes.com/add-text-set-parameter/)
   - [How to remove text - Phaser 3 - Phaser](https://phaser.discourse.group/t/how-to-remove-text/742)
   - [Phaser 3 | 基準値を指定してテキストを中央に揃える方法 | 1 NOTES](https://1-notes.com/add-text-set-align-to-center/)
+  - [Phaser3でタイマーイベントを使う - 頑張らないために頑張る](https://ysko909.github.io/posts/use-timer-event-with-phaserjs/)
+  - [Time.addEvent remove won't actually REMOVE it - Phaser 3 - Phaser](https://phaser.discourse.group/t/time-addevent-remove-wont-actually-remove-it/9757)
+  - [santa/src/scenes/MyScene.ts at main · babu-ch/santa](https://github.com/babu-ch/santa/blob/main/src/scenes/MyScene.ts)
 
 
 ## Links
