@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Practice Phaser + TypeScript : 2nd Game</title>
+    <title>横スクロールゲーム「アナオちゃんで GO!」</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
     <style>
@@ -14,8 +14,14 @@
     <script type="module" src="./main.ts"></script>
   </head>
   <body>
-    <h1>横スクロールで GO!</h1>
+    <h1>横スクロールゲーム「アナオちゃんで GO!」</h1>
     <div id="app"></div>
+    <p>マウスのクリックか「スペースキー」でゲームが開始します。</p>
+    <p>ゲームをスタートしたら、マウスでアナオちゃんを操作してください。</p>
+    <p>右から飛んでくる「そらちゃん」を取ると HP が +10・「えりちゃん」を取ると +20 回復します。</p>
+    <p>左から飛んでくる「なな子ちゃん」を取ってしまうと HP が -50 減少してしまいます。</p>
+    <p>HP が 0 になるとアナオちゃんは徐々に降下していきます。その間にアイテムを取れたら復活できますので、マウスを振って祈ってください。</p>
+    <p>HP が 0 の状態で地面に落下するとゲームオーバーです。どこまで飛べるかスコアを競ってください！</p>
     <p><a href="../index.html">Back To Index</a></p>
   </body>
 </html>

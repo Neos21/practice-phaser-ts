@@ -54,6 +54,7 @@ $ npm install --save phaser
   - [Phaser3でタイマーイベントを使う - 頑張らないために頑張る](https://ysko909.github.io/posts/use-timer-event-with-phaserjs/)
   - [Time.addEvent remove won't actually REMOVE it - Phaser 3 - Phaser](https://phaser.discourse.group/t/time-addevent-remove-wont-actually-remove-it/9757)
   - [santa/src/scenes/MyScene.ts at main · babu-ch/santa](https://github.com/babu-ch/santa/blob/main/src/scenes/MyScene.ts)
+  - [Phaser 3 : depthで重なり順の制御 - ゲームプログラミングノート](https://gpnotes.hatenablog.jp/entry/2019/01/16/170100)
 
 
 ## Links
