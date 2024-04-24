@@ -14,6 +14,7 @@ export default defineConfig({
       input: {
         ''   : path.resolve(__dirname, 'src/index.html'),
         '1st': path.resolve(__dirname, 'src/1st/index.html'),
+        '2nd': path.resolve(__dirname, 'src/2nd/index.html')
       }
     }
   },

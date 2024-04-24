@@ -27,11 +27,6 @@ export default class TestScene extends Phaser.Scene {
   /** ゲームオーバーか否か */
   private isGameOver: boolean = false;
   
-  /** コンストラクタ */
-  constructor(config: Phaser.Types.Scenes.SettingsConfig) {
-    super(config);
-  }
-  
   /** 画像の事前ロードなどを行う */
   public preload(): void {
     // `./src/1st/` と `./public/1st/` のディレクトリ名を揃えることで、ビルド後に `./dist/1st/` 内で相対パスとして解決できるようにする

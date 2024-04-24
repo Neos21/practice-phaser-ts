@@ -42,6 +42,15 @@ $ npm install --save phaser
 - Vite Multi Page Build
   - [Add a way to control output paths of HTML entries in multi-page apps · Issue #15612 · vitejs/vite](https://github.com/vitejs/vite/issues/15612)
   - [【Vite】複数ページある場合の設定を考える - UGA Boxxx](https://uga-box.hatenablog.com/entry/2022/05/03/000000)
+- 2nd Game
+  - [phaserjs/template-vite-ts: A Phaser 3 project template that uses TypeScript and Vite for bundling](https://github.com/phaserjs/template-vite-ts)
+  - [Continuous Side Scrolling in a Phaser Game with Tile Sprites](https://www.thepolyglotdeveloper.com/2020/08/continuous-side-scrolling-phaser-game-tile-sprites/)
+  - [setOrigin(0, 0) is not in sync with Arcade Physics body · Issue #5079 · phaserjs/phaser](https://github.com/phaserjs/phaser/issues/5079#issuecomment-613483608)
+  - [Control your cross platform HTML5 game with keyboard, mouse or touch input with an all-in-one TypeScript code, powered by Phaser | Emanuele Feronato](https://www.emanueleferonato.com/2021/10/03/control-your-cross-platform-html5-game-with-keyboard-mouse-or-touch-input-with-an-all-in-one-typescript-code-powered-by-phaser/)
+  - [Follow mouse/pointer with smooth acceleration/declaration - Phaser 3 - Phaser](https://phaser.discourse.group/t/follow-mouse-pointer-with-smooth-acceleration-declaration/4153/3)
+  - [Phaser 3 | テキストの各パラメータ一覧と指定方法 | 1 NOTES](https://1-notes.com/add-text-set-parameter/)
+  - [How to remove text - Phaser 3 - Phaser](https://phaser.discourse.group/t/how-to-remove-text/742)
+  - [Phaser 3 | 基準値を指定してテキストを中央に揃える方法 | 1 NOTES](https://1-notes.com/add-text-set-align-to-center/)
 
 
 ## Links
