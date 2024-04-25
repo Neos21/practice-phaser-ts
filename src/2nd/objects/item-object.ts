@@ -37,4 +37,9 @@ export default class ItemObject extends Phaser.Physics.Arcade.Image {
       this.setVelocity(Phaser.Math.Between(-600, -200), 0);  // ランダムな速度で左に流れるようにする
     }
   }
+  
+  /** プレイヤーに獲得された時の処理 : 音を鳴らす */
+  public onCollectItem(): void {
+    this.scene.sound.play(`sound-${this.keyName}`);
+  }
 }

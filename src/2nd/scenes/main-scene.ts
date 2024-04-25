@@ -15,6 +15,10 @@ export default class MainScene extends Phaser.Scene {
   private static readonly keyNameBackground: string = 'background';
   /** ステータスバーテクスチャのキー名 */
   private static readonly keyNameStatusBar: string = 'status-bar';
+  /** ゲームスタートサウンドのキー名 */
+  private static readonly keyNameGameStart: string = 'game-start';
+  /** ゲームオーバーサウンドのキー名 */
+  private static readonly keyNameGameOver: string = 'game-over';
   
   /** 背景スプライト (横スクロールできるようにする) */
   private background!: Phaser.GameObjects.TileSprite;
@@ -43,6 +47,11 @@ export default class MainScene extends Phaser.Scene {
     this.load.image(ItemObject.keyNameSora     , `./${ItemObject.keyNameSora}.png`);
     this.load.image(ItemObject.keyNameEri      , `./${ItemObject.keyNameEri}.png`);
     this.load.image(ItemObject.keyNameEnemy    , `./${ItemObject.keyNameEnemy}.png`);
+    this.load.audio(`sound-${MainScene.keyNameGameStart}`, `./sound-${MainScene.keyNameGameStart}.mp3`);
+    this.load.audio(`sound-${MainScene.keyNameGameOver}` , `./sound-${MainScene.keyNameGameOver}.mp3`);
+    this.load.audio(`sound-${ItemObject.keyNameSora}`    , `./sound-${ItemObject.keyNameSora}.mp3`);
+    this.load.audio(`sound-${ItemObject.keyNameEri}`     , `./sound-${ItemObject.keyNameEri}.mp3`);
+    this.load.audio(`sound-${ItemObject.keyNameEnemy}`   , `./sound-${ItemObject.keyNameEnemy}.mp3`);
   }
   
   /** 初期化処理 */
@@ -77,6 +86,7 @@ export default class MainScene extends Phaser.Scene {
         this.scoreObject.createTimerEvent();  // スコア計測を開始する
         this.itemsObject.createTimerEvent();  // アイテム群の初期化・タイマー処理を開始する
         
+        this.sound.play(`sound-${MainScene.keyNameGameStart}`);
         this.message.setVisible(false).setText('Game Over\nクリックかスペースキーでリトライ');  // メッセージを非表示にしつつ2回目以降のメッセージを設定しておく
         this.state = 'PLAY';
       }
@@ -94,6 +104,7 @@ export default class MainScene extends Phaser.Scene {
           this.scoreObject.removeTimerEvent();  // スコアタイマーを停止する
           this.itemsObject.removeTimerEvent();  // アイテムを止める
           
+          this.sound.play(`sound-${MainScene.keyNameGameOver}`);
           this.message.setVisible(true).depth = 100;  // 重なり順を一番上にするための指定 (値はテキトーだがコレで最前面表示にできているのでよしとする)
           this.state = 'GAME_OVER';
         }
@@ -103,16 +114,8 @@ export default class MainScene extends Phaser.Scene {
   
   /** プレイヤーがアイテムを取得した時の処理 */
   private onCollectItem(player: PlayerObject, item: ItemObject): void {
-    if(item.keyName === ItemObject.keyNameEnemy) {
-      player.setTint(0xff0000);  // 敵に当たった場合は赤色にする
-    }
-    else {
-      player.setTint(0xffffff);  // アイテムを取った場合は白色にする
-    }
-    setTimeout(() => {
-      player.setTint(0xe6e6e6);  // 色を元に戻す
-    }, 500);
-    
+    player.onCollectItem(item);                             // プレイヤーの点滅処理
+    item.onCollectItem();                                   // サウンド再生
     this.itemsObject.items.remove(item, true, true);        // アイテムを消す
     this.hpObject.updateHp(this.hpObject.hp + item.point);  // HP を回復 or 減少させる
   }

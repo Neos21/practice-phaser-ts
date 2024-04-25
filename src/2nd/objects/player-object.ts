@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 
 import { State } from '../scenes/main-scene';
+import ItemObject from './item-object';
 
 /** プレイヤーオブジェクト */
 export default class PlayerObject extends Phaser.Physics.Arcade.Sprite {
@@ -34,5 +35,18 @@ export default class PlayerObject extends Phaser.Physics.Arcade.Sprite {
     else if(state === 'GAME_OVER') {
       if(this.scene.tweens.getTweens().length > 0) this.scene.tweens.killTweensOf(this);  // Tween の残りを殺すことで即時停止させる
     }
+  }
+  
+  /** プレイヤーがアイテムを獲得した時の処理 */
+  public onCollectItem(item: ItemObject): void {
+    if(item.keyName === ItemObject.keyNameEnemy) {
+      this.setTint(0xff0000);  // 敵に当たった場合は赤色にする
+    }
+    else {
+      this.setTint(0xffffff);  // アイテムを取った場合は白色にする
+    }
+    setTimeout(() => {
+      this.setTint(0xe6e6e6);  // 色を元に戻す
+    }, 500);
   }
 }
