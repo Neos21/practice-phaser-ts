@@ -63,7 +63,7 @@ export default class TestScene extends Phaser.Scene {
     
     // 爆弾を用意する
     this.bombs = this.physics.add.group();
-    this.physics.add.collider(this.bombs, this.platforms);  // 地面と爆弾たとの衝突判定を設ける
+    this.physics.add.collider(this.bombs, this.platforms);  // 地面と爆弾たちとの衝突判定を設ける
     this.physics.add.collider(this.player, this.bombs, player => this.onHitBomb(player as PlayerObject), undefined, this);  // 爆弾との衝突時の処理を定義する
     
     // スコア表示を追加する
