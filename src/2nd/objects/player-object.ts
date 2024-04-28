@@ -28,7 +28,7 @@ export default class PlayerObject extends Phaser.Physics.Arcade.Sprite {
         targets: this,
         x: pointer.x,
         y: Math.min(pointer.y, 475),  // 500 - (50 / 2) : ステータスバーに対して Collision が効かないのでココで制御する
-        duration: 500,
+        duration: 470,
         ease: 'Sine.easeOut'
       });
     }

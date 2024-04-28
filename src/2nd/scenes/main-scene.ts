@@ -61,7 +61,7 @@ export default class MainScene extends Phaser.Scene {
     // ステータスバーを配置する (`refreshBody()` で `setOrigin()` による当たり判定のズレを修正する)
     this.physics.add.staticImage(0, 500, MainScene.keyNameStatusBar).setOrigin(0, 0).refreshBody();
     // 初期状態のテキストを表示する (`setOrigin()` で中央揃えになるようにする)
-    this.message = this.add.text(500, 250, 'クリックかスペースキーでスタート', { color: '#f09', fontSize: 30, fontFamily: 'sans-serif', backgroundColor: '#fff', align: 'center' }).setOrigin(0.5, 0);
+    this.message = this.add.text(500, 250, 'スペースキーでスタート', { color: '#f09', fontSize: 30, fontFamily: 'sans-serif', backgroundColor: '#fff', align: 'center' }).setOrigin(0.5, 0);
     
     this.hpObject = new HpObject(this);             // HP 表示
     this.scoreObject = new ScoreObject(this);       // スコア表示
@@ -81,13 +81,13 @@ export default class MainScene extends Phaser.Scene {
   /** メインループ */
   public update(): void {
     if(this.state === 'GAME_OVER') {
-      if(this.spaceKey.isDown || this.input.mousePointer.isDown) {  // スペースかクリックで開始する
+      if(this.spaceKey.isDown) {  // スペースキーで開始する
         this.hpObject.createTimerEvent();     // HP 監視を開始する
         this.scoreObject.createTimerEvent();  // スコア計測を開始する
         this.itemsObject.createTimerEvent();  // アイテム群の初期化・タイマー処理を開始する
         
-        this.sound.play(`sound-${MainScene.keyNameGameStart}`);
-        this.message.setVisible(false).setText('Game Over\nクリックかスペースキーでリトライ');  // メッセージを非表示にしつつ2回目以降のメッセージを設定しておく
+        this.sound.play(`sound-${MainScene.keyNameGameStart}`, { volume: 0.5 });
+        this.message.setVisible(false).setText('Game Over\nスペースキーでリトライ');  // メッセージを非表示にしつつ2回目以降のメッセージを設定しておく
         this.state = 'PLAY';
       }
     }
@@ -104,7 +104,7 @@ export default class MainScene extends Phaser.Scene {
           this.scoreObject.removeTimerEvent();  // スコアタイマーを停止する
           this.itemsObject.removeTimerEvent();  // アイテムを止める
           
-          this.sound.play(`sound-${MainScene.keyNameGameOver}`);
+          this.sound.play(`sound-${MainScene.keyNameGameOver}`, { volume: 0.5 });
           this.message.setVisible(true).depth = 100;  // 重なり順を一番上にするための指定 (値はテキトーだがコレで最前面表示にできているのでよしとする)
           this.state = 'GAME_OVER';
         }
@@ -114,9 +114,9 @@ export default class MainScene extends Phaser.Scene {
   
   /** プレイヤーがアイテムを取得した時の処理 */
   private onCollectItem(player: PlayerObject, item: ItemObject): void {
-    player.onCollectItem(item);                             // プレイヤーの点滅処理
-    item.onCollectItem();                                   // サウンド再生
-    this.itemsObject.items.remove(item, true, true);        // アイテムを消す
-    this.hpObject.updateHp(this.hpObject.hp + item.point);  // HP を回復 or 減少させる
+    player.onCollectItem(item);                       // プレイヤーの点滅処理
+    item.onCollectItem();                             // サウンド再生
+    this.itemsObject.items.remove(item, true, true);  // アイテムを消す
+    this.hpObject.updateHp(Math.max(this.hpObject.hp + item.point, 0));  // HP を回復 or 減少させる (負数にならないようにする)
   }
 }

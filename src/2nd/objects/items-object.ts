@@ -2,6 +2,9 @@ import Phaser from 'phaser';
 
 import ItemObject from './item-object';
 
+/** レベル定義 */
+type Level = 'easy' | 'hard' | 'zarigani';
+
 /** アイテム群を抱えるオブジェクト */
 export default class ItemsObject {
   /** アイテム群 */
@@ -22,17 +25,29 @@ export default class ItemsObject {
   public createTimerEvent(): void {
     // アイテムを空にする
     this.items.clear(true, true);
+    
+    // レベル選択 (セレクトボックス)
+    const level: Level = (document.getElementById('level') as any).value || 'easy';  // `value` で良いだろ
+    
     // アイテムを追加し始める
     this.itemsTimerEvent = this.scene.time.addEvent({
       loop: true,   // `repeat: 0` で1回だけ実行される
-      delay: 1000,
+      delay: level === 'hard' ? 500 : level === 'zarigani' ? 250 : 800,
       callback: () => {
         // 敵 : たまにしか出ないようにする
-        const isAddEnemy = Phaser.Math.Between(0, 10) > 8;
+        const isAddEnemy = (() => {
+          const value = Phaser.Math.Between(0, 10);
+          if(level === 'easy' || level === 'hard') return value > 2;
+          return value > 1;  // `zarigani` モードはさらに出やすく
+        })();
         if(isAddEnemy) this.items.add(new ItemObject(this.scene, -50, Phaser.Math.Between(25, 475), ItemObject.keyNameEnemy));
         
         // アイテム : 時々出ないようにする
-        const isAddItem = Phaser.Math.Between(0, 10) > 1;
+        const isAddItem = (() => {
+          const value = Phaser.Math.Between(0, 10);
+          if(level === 'zarigani') return value > 5;  // `zarigani` モードでは少なめ
+          return value > 1;  // `easy`・`hard` 時の割合
+        })();
         if(isAddItem) {
           const keyName = Phaser.Math.Between(0, 1) === 0 ? ItemObject.keyNameSora : ItemObject.keyNameEri;  // どちらのキャラを出すか決める
           this.items.add(new ItemObject(this.scene, 1025, Phaser.Math.Between(25, 475), keyName));

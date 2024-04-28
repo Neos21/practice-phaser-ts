@@ -16,10 +16,19 @@
   <body>
     <h1>横スクロールゲーム「アナオちゃんで GO!」</h1>
     <div id="app"></div>
-    <p>マウスのクリックか「スペースキー」でゲームが開始します。</p>
-    <p>ゲームをスタートしたら、マウスでアナオちゃんを操作してください。</p>
-    <p>右から飛んでくる「そらちゃん」を取ると HP が +10・「えりちゃん」を取ると +20 回復します。</p>
-    <p>左から飛んでくる「なな子ちゃん」を取ってしまうと HP が -50 減少してしまいます。</p>
+    <p>
+      レベル設定 :
+      <select id="level">
+        <option value="easy">Easy (デフォルト)</option>
+        <option value="hard">Hard (難しい)</option>
+        <option value="zarigani">Zarigani (？)</option>
+      </select>
+    </p>
+    
+    <p>「スペースキー」でゲームが開始します。</p>
+    <p>ゲームをスタートしたら、マウスで「<img src="/2nd/player.png" title="アナオちゃん" alt="アナオちゃん" width="25" height="25">アナオちゃん」を操作してください。</p>
+    <p>右から飛んでくる「<img src="/2nd/item-sora.png" title="そらちゃん" alt="そらちゃん" width="25" height="25">そらちゃん」を取ると HP が +10・「<img src="/2nd/item-eri.png" title="えりちゃん" alt="えりちゃん" width="25" height="25">えりちゃん」を取ると +20 回復します。</p>
+    <p>左から飛んでくる「<img src="/2nd/enemy.png" title="なな子ちゃん" alt="なな子ちゃん" width="25" height="25">なな子ちゃん」を取ってしまうと HP が -50 減少してしまいます。</p>
     <p>HP が 0 になるとアナオちゃんは徐々に降下していきます。その間にアイテムを取れたら復活できますので、マウスを振って祈ってください。</p>
     <p>HP が 0 の状態で地面に落下するとゲームオーバーです。どこまで飛べるかスコアを競ってください！</p>
     <p><a href="../index.html">Back To Index</a></p>

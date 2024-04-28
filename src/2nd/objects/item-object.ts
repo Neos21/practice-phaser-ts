@@ -14,7 +14,7 @@ export default class ItemObject extends Phaser.Physics.Arcade.Image {
     [this.keyNameSora] :  10,
     [this.keyNameEri]  :  20,
     [this.keyNameEnemy]: -50
-  }
+  };
   
   /** 自身のキー名 */
   public keyName!: string;
@@ -31,10 +31,11 @@ export default class ItemObject extends Phaser.Physics.Arcade.Image {
     this.point = ItemObject.points[keyName];  // 本アイテムを獲得した際の得点を宣言しておく
     
     if(this.keyName === ItemObject.keyNameEnemy) {  // 敵アイテムの場合
-      this.setVelocity(Phaser.Math.Between(800, 400), 0);  // ランダムな速度で右に流れるようにする
+      // NOTE : ココで Between 自体にランダム性をさらにもたせても良いか
+      this.setVelocity(Phaser.Math.Between(1100, 700), 0);  // ランダムな速度で右に流れるようにする
     }
     else {  // 通常のアイテムの場合
-      this.setVelocity(Phaser.Math.Between(-600, -200), 0);  // ランダムな速度で左に流れるようにする
+      this.setVelocity(Phaser.Math.Between(-700, -400), 0);  // ランダムな速度で左に流れるようにする
     }
   }
   
