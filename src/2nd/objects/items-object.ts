@@ -34,15 +34,9 @@ export default class ItemsObject {
       loop: true,   // `repeat: 0` で1回だけ実行される
       delay: level === 'hard' ? 500 : level === 'zarigani' ? 250 : 800,
       callback: () => {
-        // 敵 : たまにしか出ないようにする
-        const isAddEnemy = (() => {
-          const value = Phaser.Math.Between(0, 10);
-          if(level === 'easy' || level === 'hard') return value > 2;
-          return value > 1;  // `zarigani` モードはさらに出やすく
-        })();
-        if(isAddEnemy) this.items.add(new ItemObject(this.scene, -50, Phaser.Math.Between(25, 475), ItemObject.keyNameEnemy));
+        // アイテム・敵ごとに出現率を調整して出現させる
         
-        // アイテム : 時々出ないようにする
+        // アイテム
         const isAddItem = (() => {
           const value = Phaser.Math.Between(0, 10);
           if(level === 'zarigani') return value > 5;  // `zarigani` モードでは少なめ
@@ -50,7 +44,27 @@ export default class ItemsObject {
         })();
         if(isAddItem) {
           const keyName = Phaser.Math.Between(0, 1) === 0 ? ItemObject.keyNameSora : ItemObject.keyNameEri;  // どちらのキャラを出すか決める
-          this.items.add(new ItemObject(this.scene, 1025, Phaser.Math.Between(25, 475), keyName));
+          this.items.add(new ItemObject(this.scene, 1025, Phaser.Math.Between(25, 475), Phaser.Math.Between(-700, -400), keyName));
+        }
+        
+        // レアアイテム
+        const isAddRareItem = Phaser.Math.Between(0, 50) === 0;
+        if(isAddRareItem) {
+          this.items.add(new ItemObject(this.scene, 1025, Phaser.Math.Between(25, 475), Phaser.Math.Between(-1400, -1000), ItemObject.keyNameUnknown));
+        }
+        
+        // 敵
+        const isAddEnemy = (() => {
+          const value = Phaser.Math.Between(0, 10);
+          if(level === 'easy' || level === 'hard') return value > 2;
+          return value > 1;  // `zarigani` モードはさらに出やすく
+        })();
+        if(isAddEnemy) this.items.add(new ItemObject(this.scene, -50, Phaser.Math.Between(25, 475), Phaser.Math.Between(1000, 600), ItemObject.keyNameEnemy));
+        
+        // 爆弾
+        const isAddBomb = Phaser.Math.Between(0, 20) === 0;
+        if(isAddBomb) {
+          this.items.add(new ItemObject(this.scene, -50, Phaser.Math.Between(25, 475), Phaser.Math.Between(1400, 900), ItemObject.keyNameBomb));
         }
         
         // 画面外に消えたオブジェクトを削除する

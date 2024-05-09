@@ -6,14 +6,20 @@ export default class ItemObject extends Phaser.Physics.Arcade.Image {
   public static readonly keyNameSora: string = 'item-sora';
   /** テクスチャのキー名 : えり */
   public static readonly keyNameEri: string  = 'item-eri';
+  /** テクスチャのキー名 : 庵野雲 */
+  public static readonly keyNameUnknown: string  = 'item-unknown';
   /** テクスチャのキー名 : 敵 (ザリガニ) */
   public static readonly keyNameEnemy: string = 'enemy';
+  /** テクスチャのキー名 : 爆弾 (みどり) */
+  public static readonly keyNameBomb: string  = 'bomb';
   
   /** 各キャラ獲得時の点数を定義しておく */
   private static readonly points = {
-    [this.keyNameSora] :  10,
-    [this.keyNameEri]  :  20,
-    [this.keyNameEnemy]: -50
+    [this.keyNameSora]   :    10,
+    [this.keyNameEri]    :    20,
+    [this.keyNameUnknown]:   200,
+    [this.keyNameEnemy]  :   -50,
+    [this.keyNameBomb]   : -9999
   };
   
   /** 自身のキー名 */
@@ -22,7 +28,7 @@ export default class ItemObject extends Phaser.Physics.Arcade.Image {
   public point!: number;
   
   /** コンストラクタ */
-  constructor(scene: Phaser.Scene, x: number, y: number, keyName: string) {
+  constructor(scene: Phaser.Scene, x: number, y: number, velocityX: number, keyName: string) {
     super(scene, x, y, keyName);
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
@@ -30,13 +36,7 @@ export default class ItemObject extends Phaser.Physics.Arcade.Image {
     this.keyName = keyName;
     this.point = ItemObject.points[keyName];  // 本アイテムを獲得した際の得点を宣言しておく
     
-    if(this.keyName === ItemObject.keyNameEnemy) {  // 敵アイテムの場合
-      // NOTE : ココで Between 自体にランダム性をさらにもたせても良いか
-      this.setVelocity(Phaser.Math.Between(1100, 700), 0);  // ランダムな速度で右に流れるようにする
-    }
-    else {  // 通常のアイテムの場合
-      this.setVelocity(Phaser.Math.Between(-700, -400), 0);  // ランダムな速度で左に流れるようにする
-    }
+    this.setVelocityX(velocityX);  // 流れる方向を決める
   }
   
   /** プレイヤーに獲得された時の処理 : 音を鳴らす */

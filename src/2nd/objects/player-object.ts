@@ -39,8 +39,8 @@ export default class PlayerObject extends Phaser.Physics.Arcade.Sprite {
   
   /** プレイヤーがアイテムを獲得した時の処理 */
   public onCollectItem(item: ItemObject): void {
-    if(item.keyName === ItemObject.keyNameEnemy) {
-      this.setTint(0xff0000);  // 敵に当たった場合は赤色にする
+    if([ItemObject.keyNameEnemy, ItemObject.keyNameBomb].includes(item.keyName)) {
+      this.setTint(0xff0000);  // 敵・爆弾に当たった場合は赤色にする
     }
     else {
       this.setTint(0xffffff);  // アイテムを取った場合は白色にする

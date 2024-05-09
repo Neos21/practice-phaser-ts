@@ -46,12 +46,16 @@ export default class MainScene extends Phaser.Scene {
     this.load.image(PlayerObject.keyName       , `./${PlayerObject.keyName}.png`);
     this.load.image(ItemObject.keyNameSora     , `./${ItemObject.keyNameSora}.png`);
     this.load.image(ItemObject.keyNameEri      , `./${ItemObject.keyNameEri}.png`);
+    this.load.image(ItemObject.keyNameUnknown  , `./${ItemObject.keyNameUnknown}.png`);
     this.load.image(ItemObject.keyNameEnemy    , `./${ItemObject.keyNameEnemy}.png`);
+    this.load.image(ItemObject.keyNameBomb     , `./${ItemObject.keyNameBomb}.png`);
     this.load.audio(`sound-${MainScene.keyNameGameStart}`, `./sound-${MainScene.keyNameGameStart}.mp3`);
     this.load.audio(`sound-${MainScene.keyNameGameOver}` , `./sound-${MainScene.keyNameGameOver}.mp3`);
     this.load.audio(`sound-${ItemObject.keyNameSora}`    , `./sound-${ItemObject.keyNameSora}.mp3`);
     this.load.audio(`sound-${ItemObject.keyNameEri}`     , `./sound-${ItemObject.keyNameEri}.mp3`);
+    this.load.audio(`sound-${ItemObject.keyNameUnknown}` , `./sound-${ItemObject.keyNameUnknown}.mp3`);
     this.load.audio(`sound-${ItemObject.keyNameEnemy}`   , `./sound-${ItemObject.keyNameEnemy}.mp3`);
+    this.load.audio(`sound-${ItemObject.keyNameBomb}`    , `./sound-${ItemObject.keyNameBomb}.mp3`);
   }
   
   /** 初期化処理 */
@@ -108,6 +112,9 @@ export default class MainScene extends Phaser.Scene {
           this.message.setVisible(true).depth = 100;  // 重なり順を一番上にするための指定 (値はテキトーだがコレで最前面表示にできているのでよしとする)
           this.state = 'GAME_OVER';
         }
+      }
+      else {
+        this.player.setVelocityY(0);  // HP 0 からの復帰時に重力を戻す
       }
     }
   }
