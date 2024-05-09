@@ -125,5 +125,7 @@ export default class MainScene extends Phaser.Scene {
     item.onCollectItem();                             // サウンド再生
     this.itemsObject.items.remove(item, true, true);  // アイテムを消す
     this.hpObject.updateHp(Math.max(this.hpObject.hp + item.point, 0));  // HP を回復 or 減少させる (負数にならないようにする)
+    
+    if(item.keyName === ItemObject.keyNameBomb) player.setY(475);  // 爆弾を取った時に地面にぶつける = HP を減少させたことと合わせて即死にする
   }
 }
