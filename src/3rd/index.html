@@ -10,12 +10,27 @@
       h1, p {
         text-align: center;
       }
+      h1 {
+        margin: 1rem 0;
+      }
+      strong {
+        font-size: 1.2rem;
+      }
     </style>
     <script type="module" src="./main.ts"></script>
   </head>
   <body>
     <div id="app"></div>
+    
     <h1>横スクロールゲーム「アナオちゃんで GO!」スマホ版</h1>
+    <p>「2本指タップ」でゲームが開始します。</p>
+    <p>ゲームをスタートしたら、タップ操作を続けたまま「<img src="/2nd/player.png" title="アナオちゃん" alt="アナオちゃん" width="25" height="25">アナオちゃん」をドラッグして操作してください。</p>
+    <p>右から飛んでくる「<img src="/2nd/item-sora.png" title="そらちゃん" alt="そらちゃん" width="25" height="25">そらちゃん」「<img src="/2nd/item-eri.png" title="えりちゃん" alt="えりちゃん" width="25" height="25">えりちゃん」を取ると HP が回復します。</p>
+    <p>左から飛んでくる「<img src="/2nd/enemy.png" title="なな子ちゃん" alt="なな子ちゃん" width="25" height="32">なな子ちゃん」を取ってしまうと HP が減少してしまいます。</p>
+    <p>ごくまれに飛んでくる「<img src="/2nd/item-unknown.png" title="庵野雲ちゃん" alt="庵野雲ちゃん" width="25" height="25">庵野雲ちゃん」と「<img src="/2nd/bomb.png" title="みどりちゃん" alt="みどりちゃん" width="25" height="25">みどりちゃん」にもご注目を！</p>
+    <p>HP が 0 になるとアナオちゃんは徐々に降下していきます。その間にアイテムを取れたら復活できますので、タップを続けて祈ってください。</p>
+    <p>HP が 0 の状態で地面に落下するとゲームオーバーです。どこまで飛べるかスコアを競ってください！</p>
+    <hr>
     <p><strong><a href="../2nd/index.html">PC 版はコチラ!!</a></strong></p>
     <p><a href="../index.html">Back To Index</a></p>
   </body>
