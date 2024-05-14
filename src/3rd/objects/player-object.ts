@@ -17,6 +17,8 @@ export default class PlayerObject extends Phaser.Physics.Arcade.Sprite {
     
     this.setCollideWorldBounds(true);  // 画面の枠に対する衝突判定を設ける
     this.setTint(0xe6e6e6);            // デフォルトは少し暗めにしておく
+    this.setOffset(9, 1);              // 当たり判定を調整する
+    this.setBodySize(50, 50, false);   // 当たり判定を調整する
   }
   
   /** プレイヤーをマウスに追従させる */
@@ -28,7 +30,7 @@ export default class PlayerObject extends Phaser.Physics.Arcade.Sprite {
         targets: this,
         x: pointer.x,
         y: Math.min(pointer.y, gameHeight - 50 - 25),  // ステータスバーに対して Collision が効かないのでココで制御する
-        duration: 470,
+        duration: 430,
         ease: 'Sine.easeOut'
       });
     }

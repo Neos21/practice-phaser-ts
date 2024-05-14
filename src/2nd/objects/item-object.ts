@@ -37,6 +37,8 @@ export default class ItemObject extends Phaser.Physics.Arcade.Image {
     this.point = ItemObject.points[keyName];  // 本アイテムを獲得した際の得点を宣言しておく
     
     this.setVelocityX(velocityX);  // 流れる方向を決める
+    
+    if(keyName === ItemObject.keyNameEnemy) this.setBodySize(50, 50, false);  // 敵なな子の当たり判定を調整する
   }
   
   /** プレイヤーに獲得された時の処理 : 音を鳴らす */
