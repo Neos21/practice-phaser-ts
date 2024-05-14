@@ -7,13 +7,22 @@
     <!-- `/` 始まりのファイルは `public/` ディレクトリ配下を見る -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
+    <style>
+      h1 {
+        margin: .5rem 1rem;
+        font-size: 1.2rem;
+      }
+      .games li a span {
+        font-family: monospace;
+      }
+    </style>
   </head>
   <body>
     <h1>Practice Phaser + TypeScript</h1>
-    <ul>
-      <li><a href="./1st/index.html">1st Game</a></li>
-      <li><a href="./2nd/index.html">2nd Game</a></li>
-      <li><a href="./3rd/index.html">3rd Game</a></li>
+    <ul class="games">
+      <li><a href="./1st/index.html"><span>1st Game</span></a></li>
+      <li><a href="./2nd/index.html"><span>2nd Game</span>：「アナオちゃんで Go!」PC 版</a></li>
+      <li><a href="./3rd/index.html"><span>3rd Game</span>：「アナオちゃんで Go!」スマホ版</a></li>
     </ul>
     <hr>
     <ul>
