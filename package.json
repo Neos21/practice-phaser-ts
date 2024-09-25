@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "?dev": "echo 'ホットリロード開発サーバを立ち上げる'",
-    "dev": "vite",
+    "dev": "vite --host",
     "?build": "echo 'tsc で型チェックのみ行い vite build でビルドして ./dist/ に出力する'",
     "build": "tsc && vite build",
     "?preview": "echo 'npm run build でビルドした資材に対して静的サーバを立ち上げる'",
-    "preview": "vite preview"
+    "preview": "vite preview --host"
   },
   "author": "Neo <neos21@gmail.com> (https://neos21.net/)",
   "license": "MIT",

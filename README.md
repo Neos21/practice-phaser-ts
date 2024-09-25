@@ -60,4 +60,6 @@ $ npm install --save phaser
 ## Links
 
 - [Neo's World](https://neos21.net/)
+- [GitHub - Neos21](https://github.com/Neos21)
+- [GitHub - practice-phaser-ts](https://github.com/Neos21/practice-phaser-ts)
 - [GitHub Pages - practice-phaser-ts : Practice Phaser + TypeScript](https://neos21.github.io/practice-phaser-ts)
